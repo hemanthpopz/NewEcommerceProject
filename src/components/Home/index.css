@@ -1,0 +1,178 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  width: 90%;
+  max-width: 1110px;
+}
+
+.photo-container {
+  border-radius: 66% 34% 29% 71% / 54% 50% 50% 46%;
+  background-color: #fdc435;
+  height: 384px;
+  width: 384px;
+  overflow: hidden;
+  animation-name: main;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes main {
+  from {
+    box-shadow: 0px;
+  }
+  to {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.sm-photo-container {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.sm-modal-photo {
+  width: 400px;
+  position: relative;
+  top: 40px;
+  right: 10px;
+}
+.model-photo {
+  transition-duration: 0.7s;
+  transition-timing-function: ease-in-out;
+}
+.model-photo:hover {
+  top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .home-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 96px;
+  }
+  .photo-container {
+    height: 384px;
+    width: 384px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .model-photo {
+    width: 500px;
+    position: relative;
+    top: 30px;
+    right: 40px;
+  }
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .home-content {
+    align-items: flex-start;
+  }
+}
+
+.home-mobile-img {
+  width: 206px;
+}
+
+@media screen and (min-width: 768px) {
+  .sm-photo-container {
+    display: none;
+  }
+}
+
+.home-desktop-img {
+  width: 50%;
+  max-width: 450px;
+  margin-left: 85px;
+}
+
+@media screen and (max-width: 767px) {
+  .lg-photo-container {
+    display: none;
+  }
+}
+
+.home-heading {
+  color: #25282b;
+  /* title/h1 */
+  font-family: Playfair Display;
+  font-size: 28px;
+  max-width: 400px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 76.8px */
+}
+
+@media screen and (min-width: 768px) {
+  .home-heading {
+    font-size: 46px;
+    text-align: left;
+    max-width: 600px;
+  }
+}
+
+.home-description {
+  color: var(--font-medium-emphasis, #828282);
+  font-family: Nunito;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  max-width: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-description {
+    font-size: 18px;
+    margin-top: 0;
+    max-width: 600px;
+    text-align: left;
+  }
+}
+
+.shop-now-button {
+  border: none;
+  padding: 5px 20px 5px 20px;
+  border-radius: 10px;
+  background-color: #fdc435;
+  margin-top: 20px;
+  border: 1px solid #fdc435;
+  outline: none;
+  cursor: pointer;
+  color: var(--font-high-emphasis, #25282b);
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  transition-duration: 0.5s;
+  line-height: 150%; /* 27px */
+}
+.shop-now-button:hover {
+  background-color: transparent;
+  color: #fdc435;
+}
+
+@media screen and (min-width: 768px) {
+  .shop-now-button {
+    width: 150px;
+    font-size: 20px;
+  }
+}
