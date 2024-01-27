@@ -1,100 +1,70 @@
-import {Link, withRouter} from 'react-router-dom'
-
-import CartContext from '../../context/CartContext'
-
+import {Component} from 'react'
 import './index.css'
+import {IoMdMenu} from 'react-icons/io'
+import Logo from '../Images/LogoImage.svg'
 
-const Header = props => {
-  const renderCartItemsCount = () => (
-    <CartContext.Consumer>
-      {value => {
-        const {cartList} = value
-        const cartItemsCount = cartList.length
-        return (
-          <>
-            {cartItemsCount > 0 ? (
-              <span className="cart-count-badge">{cartList.length}</span>
-            ) : null}
-          </>
-        )
-      }}
-    </CartContext.Consumer>
-  )
+class Header extends Component {
+  state = {
+    smNav: false,
+  }
 
-  return (
-    <nav className="nav-header">
-      <div className="nav-content">
-        <div className="nav-bar-mobile-logo-container">
-          <Link className="nav-link" to="/">
-            <h1 className="logo-heading">
-              Trendz<span className="mart">Mart</span>
-            </h1>
-          </Link>
-        </div>
+  onClickMenu = () => {
+    const {smNav} = this.state
+    this.setState({
+      smNav: !smNav,
+    })
+  }
 
-        <div className="nav-bar-large-container">
-          <Link className="nav-link" to="/">
-            <h1 className="logo-heading">
-              Trendz<span className="mart">Mart</span>
-            </h1>
-          </Link>
-          <ul className="nav-menu">
-            <li className="nav-menu-item">
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </li>
+  render() {
+    const {smNav} = this.state
 
-            <li className="nav-menu-item">
-              <Link to="/products" className="nav-link">
-                Products
-              </Link>
-            </li>
+    return (
+      <>
+        {' '}
+        <nav>
+          <div className="logo-container">
+            <img src={Logo} />
+            <h1 className="logo-heading">UPRO</h1>
+          </div>
 
-            <li className="nav-menu-item">
-              <Link to="/cart" className="nav-link">
-                Cart
-                {renderCartItemsCount()}
-              </Link>
+          <ul className="nav-ul lg-nav">
+            <li>Home</li>
+            <li>Product</li>
+            <li>Services</li>
+            <li>Why Us</li>
+            <li>Resourses</li>
+            <li>About</li>
+            <li>
+              <button className="build-btn">Build on UPRO</button>
             </li>
           </ul>
-        </div>
-      </div>
-      <div className="nav-menu-mobile">
-        <ul className="nav-menu-list-mobile">
-          <li className="nav-menu-item-mobile">
-            <Link to="/" className="nav-link">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
-                alt="nav home"
-                className="nav-bar-image"
-              />
-            </Link>
-          </li>
 
-          <li className="nav-menu-item-mobile">
-            <Link to="/products" className="nav-link">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-products-icon.png"
-                alt="nav products"
-                className="nav-bar-image"
-              />
-            </Link>
-          </li>
-          <li className="nav-menu-item-mobile">
-            <Link to="/cart" className="nav-link">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-icon.png"
-                alt="nav cart"
-                className="nav-bar-image"
-              />
-              {renderCartItemsCount()}
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  )
+          <button
+            aria-label="Mute-Volume"
+            className="menu-icon"
+            onClick={this.onClickMenu}
+          >
+            <IoMdMenu />
+          </button>
+        </nav>
+        {smNav === true ? (
+          <ul className="nav-ul sm-nav">
+            <li>Home</li>
+            <li>Product</li>
+            <li>Services</li>
+            <li>Why Us</li>
+            <li>Resourses</li>
+            <li>About</li>
+            <li>
+              <button aria-label="Mute-Volume" className="build-btn">
+                Build on UPRO
+              </button>
+            </li>
+          </ul>
+        ) : null}
+      </>
+    )
+  }
 }
 
-export default withRouter(Header)
+export default Header
